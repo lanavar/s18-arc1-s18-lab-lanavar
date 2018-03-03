@@ -59,8 +59,8 @@ void option(int sel, BSTree *bst){
   case 2:{
     printf("Please enter the name of the employee to delete: ");
     fgets(value, MAXSTRING, stdin);
-    //bstRemove(bst, value);
-    //printf("%s removed from the database. \n", value);
+    bstRemove(bst, value);
+    printf("%s removed from the database. \n", value);
     dbprint("It was a valid choice. Name to be removed is %s \n", value);
     break;
   }
