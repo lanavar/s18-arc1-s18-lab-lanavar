@@ -74,16 +74,16 @@ void option(int sel, BSTree *bst){
   case 4:{
     printf("Please enter the name of the file to read: ");
     fgets(value, MAXSTRING, stdin);
-    //bstReadFile(bst, value);
-    //printf("The information from file %s has been saved. \n", value);
+    bstReadFile(bst, value);
+    printf("The information from file %s has been saved. \n", value);
     dbprint("It was a valid choice. File to be read from: %s \n", value);
     break;
   }
   case 5:{
     printf("Please enter the name of the file to save to: ");
     fgets(value, MAXSTRING, stdin);
-    //bstWrite(bst, value);
-    //printf("The database was saved into file: %s. \n", value);
+    bstWrite(bst, value);
+    printf("The database was saved into file: %s. \n", value);
     dbprint("It was a valid choice. File to be saved to %s \n", value);
     break;
   }

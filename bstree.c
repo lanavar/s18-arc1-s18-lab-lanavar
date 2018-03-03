@@ -337,19 +337,47 @@ void addTwoc(BSTree *bst, BSTItem *b)
 }
 
 /* Write the names into a file */
-void bstWrite(BSTree *bst, char *f)
+void bstReadFile(BSTree *bst, char *f)
 {
+  FILE *fp;
+  char str[2000];
+  char* filename = f;
+
+  fp = fopen(filename, "r");
+  if (fp == NULL){
+    printf("Could not open file %s", filename);
+    return;}
+
+  while(fgets(str, 2000, fp)!= NULL)
+    {
+      bstAdd(bst, str);
+      dbprint("%s added to file.\n", str);
+    }
+  fclose(fp);
   return;
 }
 
 /* Reading the names from a file into a tree */
-void bstReadFile(BSTree *bst, char *f)
+void bstWrite(BSTree *bst, char *f)
 {
+  FILE *fp;
+  BSTItem *b;
+  char* filename = f;
+
+  b=bst->head;
+  fp = fopen(filename, "w");
+  writeAux(filename, b);
+  fclose(fp);
   return;
 }
 
 /* Auxiliar to write a file */
 void writeAux(BSTItem *b, char *i)
 {
-  return;
+  FILE *fp;
+  if(b){
+    fprintf(fp, b->info);
+    writeAux(b->leftc, i);
+    writeAux(b->rightc, i);
+  }
 }
