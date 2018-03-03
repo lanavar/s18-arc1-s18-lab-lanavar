@@ -6,11 +6,11 @@
 
 
 /* debugg define */
-#define DEBUG 1 
-#ifdef DEBUG
+#define DEBUG 0 
+#ifndef DEBUG
 #define dbprint printf
 #else
-#define dbprint printf
+#define dbprint(...)
 #endif
 
 /* Class for creating the actual BSTree. */

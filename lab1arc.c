@@ -4,10 +4,11 @@
 
 #define MAXBUF 100       /* Maximum size of the buffer */
 #define MAXSTRING 1024   /* Maximum lenght of string */
-#define DEBUG 1     /* Activating debug */
-#ifdef DEBUG             /* Debugging print command */
+#define DEBUG 0    /* Activating debug */
+#ifndef DEBUG             /* Debugging print command */
 #define dbprint printf
-#else dbprint /
+#else 
+#define dbprint(...) 
 #endif
 
 
