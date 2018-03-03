@@ -1,16 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "bstree.h"
 
 #define MAXBUF 100       /* Maximum size of the buffer */
 #define MAXSTRING 1024   /* Maximum lenght of string */
 #define DEBUG 1     /* Activating debug */
-#define dbprint    /* Debugg print command */
-#ifdef DEBUG
+#ifdef DEBUG             /* Debugging print command */
 #define dbprint printf
 #else dbprint /
 #endif
 
-void option(int);
 
 /* Main file for the program, this is the interface where the user will be asked to select what they want to do.
    this is part of lab1 for acr1 class written by Lenin Navar */
@@ -19,7 +18,7 @@ int main()
   char element;                // Element to find out what 
   int choice;                  // int for the choice entered by user
   char buf[MAXBUF];               // Buffer for receiving elements
-  
+  BSTree *bst = bstAlloc();     // Make an empty tree
 
   /* Loop for selecting the choice by the customer */
   while(choice!=9){
@@ -39,12 +38,12 @@ int main()
       choice = atoi(buf);
  
     dbprint("%d num choice for user \n", choice, choice);
-    option(choice);
+    option(choice, bst);
   }
   return 0;
 }
 /* Method for processing the option selected by the user */
-void option(int sel){
+void option(int sel, BSTree *bst){
   char *value = malloc(MAXSTRING);
   printf("You chose: %d \n", sel);
 
@@ -52,8 +51,8 @@ void option(int sel){
   case 1:{
     printf("Please enter the name of the employee to add: ");
     fgets(value, MAXSTRING, stdin);
-    //bstAdd(bst, value);
-    //printf("%s entered into database. \n", value);
+    bstAdd(bst, value);
+    printf("%s entered into database. \n", value);
     dbprint("It was a valid choice. Name to be stored is %s \n", value);
     break;
   }
