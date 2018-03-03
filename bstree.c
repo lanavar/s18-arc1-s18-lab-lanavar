@@ -99,10 +99,14 @@ void bstAdd(BSTree *bst, char *i)
   return;
 }
 
-/* Print Elements of the tree */
+/* Print Elements of the tree the current one and then goes left then right */
 void bstPrint(BSTItem *b)
 {
-  return;
+  if(b){     /* Test if the element is empty */
+    printf("%s", b->info);
+    bstPrint(b->leftc);
+    bstPrint(b->rightc);
+  }
 }
 
 /* Remove an element from binary search tree */

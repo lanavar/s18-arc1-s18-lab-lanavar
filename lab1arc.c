@@ -66,8 +66,8 @@ void option(int sel, BSTree *bst){
   }
   case 3:{
     printf("Here is the list of the employee names: ");
-    //bstPrint(bst -> head);
-    //printf(" \n");
+    bstPrint(bst -> head);
+    printf(" \n");
     dbprint("It was a valid choice. List printed.\n", value);
     break;
   }
