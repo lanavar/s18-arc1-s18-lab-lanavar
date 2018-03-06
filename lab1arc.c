@@ -11,6 +11,7 @@
 #define dbprint(...) 
 #endif
 
+void option(int sel, BSTree *bst);
 
 /* Main file for the program, this is the interface where the user will be asked to select what they want to do.
    this is part of lab1 for acr1 class written by Lenin Navar */
